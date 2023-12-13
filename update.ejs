@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/changestyle.css">
+  <title>My Personal Library</title>
+</head>
+<body>
+
+  <header>
+    <h1>My Personal Library</h1>
+  </header>
+
+  <main>
+    <form id="addBookForm" action="/change/<%=bookId%>" method="post">
+
+      <label for="rating">Rating:</label>
+      <select id="rating" name="rating" required>
+        <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
+        <option value="⭐⭐⭐⭐☆">⭐⭐⭐⭐☆</option>
+        <option value="⭐⭐⭐⭐☆">⭐⭐⭐⭐☆</option>
+        <option value="⭐⭐☆☆☆">⭐⭐☆☆☆</option>
+        <option value="⭐☆☆☆☆">⭐☆☆☆☆</option>
+      </select>
+
+      <label for="review">Review:</label>
+      <textarea id="review" name="review" rows="4" required></textarea>
+
+      <button type="submit">Update review</button>
+    </form>
+
+    <section class="book-container" id="bookContainer">
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 My Personal Library</p>
+  </footer>
+</body>
+</html>

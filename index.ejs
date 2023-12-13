@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="homestyle.css">
+  <title>Library</title>
+</head>
+<body>
+
+  <header>
+    <h1>Library</h1>
+  </header>
+
+  <main>
+<!-- index.ejs -->
+
+<section class="book-container">
+  <% books.forEach(book => { %>
+    <div class="book-card">
+      <div class="book-cover">
+        <img src="https://covers.openlibrary.org/b/isbn/<%= book.isbn%>-M.jpg" alt="Book Cover">
+      </div>
+      <div class="book-details">
+        <h2><%= book.title %></h2>
+        <p>Author: <%= book.author %></p>
+        <div class="rating">
+          <p>Rating: <%= book.rating %></p>
+        </div>
+        <p>Review: <%= book.review %></p>
+        <!-- Add other book details as needed -->
+
+        <!-- Buttons for delete and update -->
+        <div class="action-buttons">
+          <!-- Delete button -->
+          <form action="/delete/<%= book.book_id %>" method="POST" style="display:inline;">
+            <button type="submit" class="delete-btn">Delete</button>
+          </form>
+
+          <!-- Update button -->
+          <form action="/update/<%= book.book_id %>" method="POST" style="display:inline;">
+            <button type="submit" class="update-btn">Update</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  <% }) %>
+</section>
+
+
+    <section class="actions">
+      <form id="requestingAdd" action="/infos" method="get">
+        <button type="submit" class="add-btn">Add New Book</button>
+
+       </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Library</p>
+  </footer>
+
+</body>
+</html>
